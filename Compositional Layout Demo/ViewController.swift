@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
 
     private lazy var collectionView: UICollectionView = {
-        let collection = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         return collection
     }()
     
@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         configureDataSource()
         configureCollectionView()
         initialSnapshot()
+        setupConstraints()
     }
     
     private func configureCollectionView() {
@@ -54,10 +55,13 @@ class ViewController: UIViewController {
     private func createLayout() -> UICollectionViewCompositionalLayout {
         //1. Create size and item
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.25),
+            widthDimension: .fractionalWidth(0.2),
             heightDimension: .fractionalHeight(1.0)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        //Add insets to item
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
         //2. Create and configure group
         let groupSize = NSCollectionLayoutSize(
@@ -65,6 +69,7 @@ class ViewController: UIViewController {
             heightDimension: .fractionalWidth(0.25)
         )
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
         
         //3. Create section
         let section = NSCollectionLayoutSection(group: group)
@@ -73,6 +78,19 @@ class ViewController: UIViewController {
         let layout = UICollectionViewCompositionalLayout(section: section)
         
         return layout
+    }
+    
+    private func setupConstraints() {
+        let safeArea = view.safeAreaLayoutGuide
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+        ])
+        
     }
 }
 
