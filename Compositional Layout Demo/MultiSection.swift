@@ -70,6 +70,8 @@ class ViewController: UIViewController {
             
             let section = NSCollectionLayoutSection(group: group)
             
+            //configure header
+            
             return section
         }
         
@@ -90,7 +92,17 @@ class ViewController: UIViewController {
             }
             return cell
         })
+        //suolementary view provider
         
+        dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseID, for: indexPath) as? HeaderView else { fatalError("Couldnt deque a header") }
+            
+            headerView.textLabel.text = "\(Section.allCases[indexPath.section])"
+            return headerView
+        }
+        
+        
+        //snapshot
         var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
         snapshot.appendSections([.single, .grid])
         snapshot.appendItems(Array(1...20), toSection: .single)
