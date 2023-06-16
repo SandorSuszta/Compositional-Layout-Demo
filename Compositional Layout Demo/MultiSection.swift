@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     
     private func configureCollectionView() {
         view.addSubview(collectionView)
-        collectionView.backgroundColor = .blue
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(LabelCell.self, forCellWithReuseIdentifier: "LabelCell")
         collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseID)
     }
@@ -71,6 +71,10 @@ class ViewController: UIViewController {
             let section = NSCollectionLayoutSection(group: group)
             
             //configure header
+            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
+            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+            
+            section.boundarySupplementaryItems = [header]
             
             return section
         }
@@ -97,7 +101,7 @@ class ViewController: UIViewController {
         dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseID, for: indexPath) as? HeaderView else { fatalError("Couldnt deque a header") }
             
-            headerView.textLabel.text = "\(Section.allCases[indexPath.section])"
+            headerView.textLabel.text = "\(Section.allCases[indexPath.section])".capitalized
             return headerView
         }
         
