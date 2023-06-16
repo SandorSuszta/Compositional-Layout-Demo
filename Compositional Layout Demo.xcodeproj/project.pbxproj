@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		79E216402A3B3E1D0091DA4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2163F2A3B3E1D0091DA4D /* AppDelegate.swift */; };
 		79E216422A3B3E1D0091DA4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E216412A3B3E1D0091DA4D /* SceneDelegate.swift */; };
-		79E216442A3B3E1D0091DA4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E216432A3B3E1D0091DA4D /* ViewController.swift */; };
+		79E216442A3B3E1D0091DA4D /* SingleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E216432A3B3E1D0091DA4D /* SingleSection.swift */; };
 		79E216472A3B3E1D0091DA4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E216452A3B3E1D0091DA4D /* Main.storyboard */; };
 		79E216492A3B3E200091DA4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79E216482A3B3E200091DA4D /* Assets.xcassets */; };
 		79E2164C2A3B3E200091DA4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E2164A2A3B3E200091DA4D /* LaunchScreen.storyboard */; };
 		79E216562A3B40D30091DA4D /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E216552A3B40D30091DA4D /* LabelCell.swift */; };
+		79E216582A3CC1BF0091DA4D /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E216572A3CC1BF0091DA4D /* MultiSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		79E2163C2A3B3E1D0091DA4D /* Compositional Layout Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compositional Layout Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E2163F2A3B3E1D0091DA4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79E216412A3B3E1D0091DA4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		79E216432A3B3E1D0091DA4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		79E216432A3B3E1D0091DA4D /* SingleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSection.swift; sourceTree = "<group>"; };
 		79E216462A3B3E1D0091DA4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79E216482A3B3E200091DA4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79E2164B2A3B3E200091DA4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79E2164D2A3B3E200091DA4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79E216552A3B40D30091DA4D /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
+		79E216572A3CC1BF0091DA4D /* MultiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,8 @@
 			children = (
 				79E2163F2A3B3E1D0091DA4D /* AppDelegate.swift */,
 				79E216412A3B3E1D0091DA4D /* SceneDelegate.swift */,
-				79E216432A3B3E1D0091DA4D /* ViewController.swift */,
+				79E216432A3B3E1D0091DA4D /* SingleSection.swift */,
+				79E216572A3CC1BF0091DA4D /* MultiSection.swift */,
 				79E216452A3B3E1D0091DA4D /* Main.storyboard */,
 				79E216482A3B3E200091DA4D /* Assets.xcassets */,
 				79E2164A2A3B3E200091DA4D /* LaunchScreen.storyboard */,
@@ -141,9 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79E216442A3B3E1D0091DA4D /* ViewController.swift in Sources */,
+				79E216442A3B3E1D0091DA4D /* SingleSection.swift in Sources */,
 				79E216402A3B3E1D0091DA4D /* AppDelegate.swift in Sources */,
 				79E216562A3B40D30091DA4D /* LabelCell.swift in Sources */,
+				79E216582A3CC1BF0091DA4D /* MultiSection.swift in Sources */,
 				79E216422A3B3E1D0091DA4D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

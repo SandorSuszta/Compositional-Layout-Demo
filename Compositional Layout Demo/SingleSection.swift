@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SingleSectionController: UIViewController {
     
     //3. Setup sections
     enum Section {
