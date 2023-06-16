@@ -14,7 +14,7 @@ enum Section: Int, CaseIterable {
     var columnCount: Int {
         switch self {
         case .grid:
-            return 4
+            return 2
         case .single:
             return 1
         }
@@ -54,14 +54,14 @@ class ViewController: UIViewController {
             
             let columns = sectionType.columnCount
             
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0/CGFloat(columns)), heightDimension: .fractionalWidth(1.0/CGFloat(columns)))
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0/CGFloat(columns)), heightDimension: .fractionalHeight(1.0))
             
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
             
             let groupHeight = columns == 1 ?
                 NSCollectionLayoutDimension.absolute(200) :
-                NSCollectionLayoutDimension.fractionalHeight(0.25)
+                NSCollectionLayoutDimension.fractionalWidth(1/CGFloat(columns))
            
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: groupHeight)
             
