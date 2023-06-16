@@ -23,6 +23,10 @@ enum Section: Int, CaseIterable {
 
 class ViewController: UIViewController {
     
+    typealias DataSource = UICollectionViewDiffableDataSource<Section, Int>
+    
+    private var dataSource: DataSource!
+    
     private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         return collection
@@ -32,6 +36,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         configureCollectionView()
+        configureDataSource()
 
         setupConstraints()
     }
@@ -43,32 +48,57 @@ class ViewController: UIViewController {
     }
     
     private func createLayout() -> UICollectionViewCompositionalLayout {
-        //1. Create size and item
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.2),
-            heightDimension: .fractionalHeight(1.0)
-        )
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        //Add insets to item
-        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-        
-        //2. Create and configure group
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalWidth(0.25)
-        )
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
-        
-        //3. Create section
-        let section = NSCollectionLayoutSection(group: group)
-        
-        //4. Create layout
-        let layout = UICollectionViewCompositionalLayout(section: section)
+       
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex, _ ) -> NSCollectionLayoutSection? in
+            guard let sectionType = Section(rawValue: sectionIndex) else { return nil }
+            
+            let columns = sectionType.columnCount
+            
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0/CGFloat(columns)), heightDimension: .fractionalWidth(1.0/CGFloat(columns)))
+            
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+            
+            let groupHeight = columns == 1 ?
+                NSCollectionLayoutDimension.absolute(200) :
+                NSCollectionLayoutDimension.fractionalHeight(0.25)
+           
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: groupHeight)
+            
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: columns)
+            
+            let section = NSCollectionLayoutSection(group: group)
+            
+            return section
+        }
         
         return layout
     }
+    
+    private func configureDataSource() {
+        dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LabelCell", for: indexPath) as? LabelCell else { fatalError("Cant deque a cell")}
+            
+            
+            cell.textLabel.text = "\(item)"
+            
+            if indexPath.section == 0 {
+                cell.backgroundColor = .red
+            } else {
+                cell.backgroundColor = .green
+            }
+            return cell
+        })
+        
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
+        snapshot.appendSections([.single, .grid])
+        snapshot.appendItems(Array(1...20), toSection: .single)
+        snapshot.appendItems(Array(21...27),toSection: .grid)
+        
+        dataSource.apply(snapshot)
+    }
+    
+    
     
     private func setupConstraints() {
         let safeArea = view.safeAreaLayoutGuide
