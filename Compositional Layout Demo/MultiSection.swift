@@ -45,6 +45,7 @@ class ViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.backgroundColor = .blue
         collectionView.register(LabelCell.self, forCellWithReuseIdentifier: "LabelCell")
+        collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseID)
     }
     
     private func createLayout() -> UICollectionViewCompositionalLayout {
