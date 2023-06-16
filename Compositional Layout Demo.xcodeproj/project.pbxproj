@@ -15,6 +15,7 @@
 		79E2164C2A3B3E200091DA4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E2164A2A3B3E200091DA4D /* LaunchScreen.storyboard */; };
 		79E216562A3B40D30091DA4D /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E216552A3B40D30091DA4D /* LabelCell.swift */; };
 		79E216582A3CC1BF0091DA4D /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E216572A3CC1BF0091DA4D /* MultiSection.swift */; };
+		79E2165A2A3CD5620091DA4D /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E216592A3CD5620091DA4D /* SectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		79E2164D2A3B3E200091DA4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79E216552A3B40D30091DA4D /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		79E216572A3CC1BF0091DA4D /* MultiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSection.swift; sourceTree = "<group>"; };
+		79E216592A3CD5620091DA4D /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				79E2164A2A3B3E200091DA4D /* LaunchScreen.storyboard */,
 				79E2164D2A3B3E200091DA4D /* Info.plist */,
 				79E216552A3B40D30091DA4D /* LabelCell.swift */,
+				79E216592A3CD5620091DA4D /* SectionHeader.swift */,
 			);
 			path = "Compositional Layout Demo";
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			files = (
 				79E216442A3B3E1D0091DA4D /* SingleSection.swift in Sources */,
 				79E216402A3B3E1D0091DA4D /* AppDelegate.swift in Sources */,
+				79E2165A2A3CD5620091DA4D /* SectionHeader.swift in Sources */,
 				79E216562A3B40D30091DA4D /* LabelCell.swift in Sources */,
 				79E216582A3CC1BF0091DA4D /* MultiSection.swift in Sources */,
 				79E216422A3B3E1D0091DA4D /* SceneDelegate.swift in Sources */,
