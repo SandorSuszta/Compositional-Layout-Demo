@@ -8,14 +8,14 @@
 import UIKit
 
 enum Section: Int, CaseIterable {
-    case grid
-    case single
+    case marketCards
+    case crytoCoins
     
     var columnCount: Int {
         switch self {
-        case .grid:
-            return 2
-        case .single:
+        case .marketCards:
+            return 4
+        case .crytoCoins:
             return 1
         }
     }
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     private var dataSource: DataSource!
     
     private lazy var collectionView: UICollectionView = {
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: MarketCompositionalLayout())
         return collection
     }()
     
@@ -98,19 +98,24 @@ class ViewController: UIViewController {
         })
         //suolementary view provider
         
-        dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseID, for: indexPath) as? HeaderView else { fatalError("Couldnt deque a header") }
-            
-            headerView.textLabel.text = "\(Section.allCases[indexPath.section])".capitalized
-            return headerView
-        }
-        
+//        dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+//            
+//            if indexPath.section == 1 {
+//                
+//                guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.reuseID, for: indexPath) as? HeaderView else { fatalError("Couldnt deque a header") }
+//                
+//                headerView.textLabel.text = "\(Section.allCases[indexPath.section])".capitalized
+//                return headerView
+//            }
+//            
+//            return UICollectionReusableView()
+//        }
         
         //snapshot
         var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
-        snapshot.appendSections([.single, .grid])
-        snapshot.appendItems(Array(1...20), toSection: .single)
-        snapshot.appendItems(Array(21...27),toSection: .grid)
+        snapshot.appendSections([.marketCards, .crytoCoins])
+        snapshot.appendItems(Array(1...3), toSection: .marketCards)
+        snapshot.appendItems(Array(4...50),toSection: .crytoCoins)
         
         dataSource.apply(snapshot)
     }

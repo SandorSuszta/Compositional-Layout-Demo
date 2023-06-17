@@ -16,6 +16,7 @@
 		79E216562A3B40D30091DA4D /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E216552A3B40D30091DA4D /* LabelCell.swift */; };
 		79E216582A3CC1BF0091DA4D /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E216572A3CC1BF0091DA4D /* MultiSection.swift */; };
 		79E2165A2A3CD5620091DA4D /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E216592A3CD5620091DA4D /* SectionHeader.swift */; };
+		79E2165C2A3E0CFA0091DA4D /* MarketCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2165B2A3E0CFA0091DA4D /* MarketCompositionalLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		79E216552A3B40D30091DA4D /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		79E216572A3CC1BF0091DA4D /* MultiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSection.swift; sourceTree = "<group>"; };
 		79E216592A3CD5620091DA4D /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		79E2165B2A3E0CFA0091DA4D /* MarketCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCompositionalLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				79E2164D2A3B3E200091DA4D /* Info.plist */,
 				79E216552A3B40D30091DA4D /* LabelCell.swift */,
 				79E216592A3CD5620091DA4D /* SectionHeader.swift */,
+				79E2165B2A3E0CFA0091DA4D /* MarketCompositionalLayout.swift */,
 			);
 			path = "Compositional Layout Demo";
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79E216442A3B3E1D0091DA4D /* SingleSection.swift in Sources */,
+				79E2165C2A3E0CFA0091DA4D /* MarketCompositionalLayout.swift in Sources */,
 				79E216402A3B3E1D0091DA4D /* AppDelegate.swift in Sources */,
 				79E2165A2A3CD5620091DA4D /* SectionHeader.swift in Sources */,
 				79E216562A3B40D30091DA4D /* LabelCell.swift in Sources */,
